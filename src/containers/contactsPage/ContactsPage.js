@@ -5,22 +5,26 @@ export const ContactsPage = (props) => { // stateful component, maintains adding
   const [contactInfo, setContactInfo] = useState([{contactName: ''}, {phone: 0}, {email: ''}]);
   const contactInfoName = props.contactName; // recieve from app.js for duplicate check
   const onContactsAdd = props.onContactsAdd; // recieve from app.js for duplicate check
+  let handleSuccess;
   const handleSubmit = (e) => {
     e.preventDefault();
     //* Add contact info and clear data if the contact name is not a duplicate
     let submitName = e.target.value ;
    if(submitName  !== contactInfoName){
-      return setContactInfo(onContactsAdd)
+      handleSuccess = setContactInfo(onContactsAdd);
+      return handleSuccess;
    } else {
      return submitName = '';
    }
   };
   //* Using hooks, check for contact name in the contacts array variable in props
-
+  useEffect((e) => {
+    handleSuccess ? e.target.value = '' : console.log('Something went wrong');
+  }, [handleSuccess]);
   return (
     <div>
       <section>
-        <h2>Add Contact</h2> 
+        <h2>Add Contact</h2>
       </section>
       <hr />
       <section>
