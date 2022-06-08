@@ -17,9 +17,9 @@ export const ContactsPage = (props) => { // stateful component, maintains adding
      return submitName = '';
    }
   };
-  //* Using hooks, check for contact name in the contacts array variable in props
+  //* Using hooks, check for contact name in the contacts array variable in props ???? 
   useEffect((e) => {
-    handleSuccess ? e.target.value = '' : console.log('Something went wrong');
+    handleSuccess ? e.target.value = '' : console.log('Something went wrong'); // clear submit Form
   }, [handleSuccess]);
   return (
     <div>
