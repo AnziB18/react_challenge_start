@@ -6,7 +6,7 @@ import { ContactsPage } from "./containers/contactsPage/ContactsPage";
 
 function App() {  // stateful component, maintains appointments & contacts
   // Define state variables for contacts & appointments - they're array's of objects
-  const [contacts, setContacts] = useState([{name: ''}, {phoneNumber: 0}, {email:''}]); // initialized with raw informations about contancts
+  const [contacts, setContacts] = useState([{contactName: ''}, {phoneNumber: 0}, {email:''}]); // initialized with raw informations about contancts
   const [appointments, setAppointments] = useState([{title: ''}, {contact: ''}, {date: ''}, {time: ''}]); // initialized with raw informations about appointsments
 
   const ROUTES = {
@@ -15,8 +15,8 @@ function App() {  // stateful component, maintains appointments & contacts
   };
 
   //Implement function to add data to contacts and appointments
-  const addContacts = (allContactInfos) => {
-    setContacts(prev => {return [allContactInfos, ...prev]})
+  const addContacts = (contactInfos) => {
+    setContacts(prev => {return [contactInfos, ...prev]})
   }
   //Implement function to add data to contacts
   const addAppointments = (appointment) => {
@@ -39,7 +39,12 @@ function App() {  // stateful component, maintains appointments & contacts
             <Redirect to={ROUTES.CONTACTS} />
           </Route>
           <Route path={ROUTES.CONTACTS}> 
-            <ContactsPage allContactInfos={contacts} onContactsAdd={addContacts}/>{/* Add props & cb func to ContactsPage */}
+            {contacts.map((contactInfo, index) =>(
+            <ContactsPage contactName={contactInfo.name}
+                          key={`key: ${index}`}
+                          phoneNumber={contactInfo.phoneNumber}
+                          email={contactInfo.email}
+                          onContactsAdd={addContacts}/>))} {/* Add props & cb func to ContactsPage */}
           </Route>
           <Route path={ROUTES.APPOINTMENTS}>
             <AppointmentsPage appointment={appointments} onAppointmentAdd={addAppointments} /> {/* Add props & cb func to AppointmentsPage */}
