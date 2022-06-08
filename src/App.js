@@ -5,9 +5,9 @@ import { AppointmentsPage } from "./containers/appointmentsPage/AppointmentsPage
 import { ContactsPage } from "./containers/contactsPage/ContactsPage";
 
 function App() {  // stateful component, maintains appointments & contacts
-  // Define state variables for contacts & appointments 
-  const [contacts, setContacts] = useState([]); // add start, initialize with empty Array
-  const [appointments, setAppointments] = useState([]);
+  // Define state variables for contacts & appointments - they're array's of objects
+  const [contacts, setContacts] = useState([{name: ''}, {phoneNumber: 0}, {email:''}]); // initialized with raw informations about contancts
+  const [appointments, setAppointments] = useState([{title: ''}, {contact: ''}, {date: ''}, {time: ''}]); // initialized with raw informations about appointsments
 
   const ROUTES = {
     CONTACTS: "/contacts",
@@ -15,8 +15,8 @@ function App() {  // stateful component, maintains appointments & contacts
   };
 
   //Implement function to add data to contacts and appointments
-  const addContacts = (contact) => {
-    setContacts(prev => {return [contact, ...prev]})
+  const addContacts = (cont) => {
+    setContacts(prev => {return [cont, ...prev]})
   }
   //Implement function to add data to contacts
   const addAppointments = (appointment) => {
