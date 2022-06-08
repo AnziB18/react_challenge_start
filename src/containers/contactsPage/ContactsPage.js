@@ -1,36 +1,42 @@
 import React, { useState, useEffect } from "react";
+//import { ContactForm } from "../../components/contactForm/ContactForm";
+//import { TileList } from "../../components/tileList/TileList";
 
 export const ContactsPage = (props) => { // stateful component, maintains adding contacts & listing current contacts
   // Define state variables for contact info and duplicate check
   const [contactInfo, setContactInfo] = useState([{contactName: ''}, {phone: 0}, {email: ''}]);
-  const contactInfoName = props.contactName; // recieve from app.js for duplicate check
+  let contactInfoName = props.allContactInfo; // recieve from app.js for duplicate check
   const onContactsAdd = props.onContactsAdd; // recieve from app.js for duplicate check
-  let handleSuccess;
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    //* Add contact info and clear data if the contact name is not a duplicate
-    let submitName = e.target.value ;
-   if(submitName  !== contactInfoName){
-      handleSuccess = setContactInfo(onContactsAdd);
-      return handleSuccess;
-   } else {
-     return submitName = '';
-   }
-  };
-  //* Using hooks, check for contact name in the contacts array variable in props ???? 
-  useEffect((e) => {
-    handleSuccess ? e.target.value = '' : console.log('Something went wrong'); // clear submit Form
-  }, [handleSuccess]);
+  useEffect(() => {
+    const checked = contactInfo.includes('Christian');
+    if(checked) {
+      console.log('Peter')
+    }else {
+      setContactInfo([{contactName: 'Christian'}, {phone: '002220'}, {email: 'c@hr'}])
+      console.log(contactInfo)
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        //setContactInfo(e.target.value);
+      }
+    };
+    return () => {console.log('removed')}
+  }, [contactInfo])
   return (
     <div>
       <section>
         <h2>Add Contact</h2>
+        {/* <ContactForm  addContactInfo={contactInfo}
+                          onSubmit={handleSubmit}
+                          onSetContact={setContactInfo}
+                          /> */}
       </section>
       <hr />
       <section>
         <h2>Contacts</h2>
+        {/* <TileList /> */}
       </section>
     </div>
   );
 };
+
 /*this is a initial commit*/
