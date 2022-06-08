@@ -6,8 +6,8 @@ import { ContactsPage } from "./containers/contactsPage/ContactsPage";
 
 function App() {  // stateful component, maintains appointments & contacts
   // Define state variables for contacts & appointments - they're array's of objects
-  const [contacts, setContacts] = useState([{contactName: ''}, {phoneNumber: 0}, {email:''}]); // initialized with raw informations about contancts
-  const [appointments, setAppointments] = useState([{title: ''}, {contact: ''}, {date: ''}, {time: ''}]); // initialized with raw informations about appointsments
+  const [contacts, setContacts] = useState([{contactName: 'Bernd'}, {phoneNumber: '000540'}, {email:'b@c'}]); // initialized with raw informations about contancts
+  const [appointments, setAppointments] = useState([{title: 'Meet Alex'}, {contact: 'Alex'}, {date: '1.1.2000'}, {time: '13:00'}]); // initialized with raw informations about appointsments
 
   const ROUTES = {
     CONTACTS: "/contacts",
@@ -39,12 +39,15 @@ function App() {  // stateful component, maintains appointments & contacts
             <Redirect to={ROUTES.CONTACTS} />
           </Route>
           <Route path={ROUTES.CONTACTS}> 
-            {contacts.map((contactInfo, index) =>(
+            <ContactsPage allContactInfo ={contacts}
+                          onContactsAdd={addContacts} 
+                          />
+            {/*{contacts.map((contactInfo, index) =>(
             <ContactsPage contactName={contactInfo.name}
                           key={`key: ${index}`}
                           phoneNumber={contactInfo.phoneNumber}
                           email={contactInfo.email}
-                          onContactsAdd={addContacts}/>))} {/* Add props & cb func to ContactsPage */}
+                          onContactsAdd={addContacts}/>))}  Add props & cb func to ContactsPage */}
           </Route>
           <Route path={ROUTES.APPOINTMENTS}>
             <AppointmentsPage appointment={appointments} onAppointmentAdd={addAppointments} /> {/* Add props & cb func to AppointmentsPage */}
