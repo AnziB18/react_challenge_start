@@ -6,7 +6,7 @@ import { ContactsPage } from "./containers/contactsPage/ContactsPage";
 
 function App() {  // stateful component, maintains appointments & contacts
   // Define state variables for contacts & appointments 
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState([]); // add start, initialize with empty Array
   const [appointments, setAppointments] = useState([]);
 
   const ROUTES = {
