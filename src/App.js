@@ -15,8 +15,8 @@ function App() {  // stateful component, maintains appointments & contacts
   };
 
   //Implement function to add data to contacts and appointments
-  const addContacts = (cont) => {
-    setContacts(prev => {return [cont, ...prev]})
+  const addContacts = (allContactInfos) => {
+    setContacts(prev => {return [allContactInfos, ...prev]})
   }
   //Implement function to add data to contacts
   const addAppointments = (appointment) => {
@@ -39,7 +39,7 @@ function App() {  // stateful component, maintains appointments & contacts
             <Redirect to={ROUTES.CONTACTS} />
           </Route>
           <Route path={ROUTES.CONTACTS}> 
-            <ContactsPage const={contacts} onContactsAdd={addContacts}/>{/* Add props & cb func to ContactsPage */}
+            <ContactsPage allContactInfos={contacts} onContactsAdd={addContacts}/>{/* Add props & cb func to ContactsPage */}
           </Route>
           <Route path={ROUTES.APPOINTMENTS}>
             <AppointmentsPage appointment={appointments} onAppointmentAdd={addAppointments} /> {/* Add props & cb func to AppointmentsPage */}
