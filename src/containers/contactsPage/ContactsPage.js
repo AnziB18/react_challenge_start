@@ -1,20 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export const ContactsPage = (props) => { // stateful component, maintains adding contacts & listing current contacts
   // Define state variables for contact info and duplicate check
-  const [contactInfo, setContactInfo] = useState([{name: ''}, {phone: 0}, {email: ''}]);
-  const allContactInfos = props.allContactInfos; // recieve from app.js for duplicate check
+  const [contactInfo, setContactInfo] = useState([{contactName: ''}, {phone: 0}, {email: ''}]);
+  const contactInfoName = props.contactName; // recieve from app.js for duplicate check
   const onContactsAdd = props.onContactsAdd; // recieve from app.js for duplicate check
   const handleSubmit = (e) => {
     e.preventDefault();
     //* Add contact info and clear data if the contact name is not a duplicate
-    
+    let submitName = e.target.value ;
+   if(submitName  !== contactInfoName){
+      return setContactInfo(onContactsAdd)
+   } else {
+     return submitName = '';
+   }
   };
-
-  /*
-  Using hooks, check for contact name in the 
-  contacts array variable in props
-  */
+  //* Using hooks, check for contact name in the contacts array variable in props
 
   return (
     <div>
