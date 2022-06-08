@@ -1,6 +1,6 @@
 import React from "react";
 
-export const ContactsPage = () => {
+export const ContactsPage = () => { // stateful component, maintains adding contacts & listing current contacts
   /*
   Define state variables for 
   contact info and duplicate check
