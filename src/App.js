@@ -6,10 +6,10 @@ import { ContactsPage } from "./containers/contactsPage/ContactsPage";
 
 function App() {  // stateful component, maintains appointments & contacts
   // Define state variables for contacts & appointments - they're array's of objects
-  const [contacts, setContacts] = useState([[{contactName: 'Eva'}, {phoneNumber: '000540'}, {email:'a@v'}],
-                                           [{contactName: 'Bernd'}, {phoneNumber: '000220'}, {email:'b@e'}],
-                                           [{contactName: 'Chris'}, {phoneNumber: '006660'}, {email:'c@h'}]]); // initialized with raw informations about contancts
-  const [appointments, setAppointments] = useState([{title: 'Meet Alex'}, {contact: 'Alex'}, {date: '1.1.2000'}, {time: '13:00'}]); // initialized with raw informations about appointsments
+  const [contacts, setContacts] = useState([[{Firstname: 'Eva'}, {Phone: '000540'}, {Email:'a@v'}],
+                                           [{Firstname: 'Bernd'}, {Phone: '000220'}, {Email:'b@e'}],
+                                           [{Firstame: 'Chris'}, {Phone: '006660'}, {Email:'c@h'}]]); // initialized with raw informations about contancts
+  const [appointments, setAppointments] = useState([{Title: 'Meet Alex'}, {Firstname: 'Alex'}, {Date: '1.1.2000'}, {Time: '13:00'}]); // initialized with raw informations about appointsments
 
   const ROUTES = {
     CONTACTS: "/contacts",
@@ -44,12 +44,6 @@ function App() {  // stateful component, maintains appointments & contacts
             <ContactsPage allContactInfo ={contacts}
                           onContactsAdd={addContacts} 
                           />
-            {/*{contacts.map((contactInfo, index) =>(
-            <ContactsPage contactName={contactInfo.name}
-                          key={`key: ${index}`}
-                          phoneNumber={contactInfo.phoneNumber}
-                          email={contactInfo.email}
-                          onContactsAdd={addContacts}/>))}  Add props & cb func to ContactsPage */}
           </Route>
           <Route path={ROUTES.APPOINTMENTS}>
             <AppointmentsPage appointment={appointments} onAppointmentAdd={addAppointments} /> {/* Add props & cb func to AppointmentsPage */}
