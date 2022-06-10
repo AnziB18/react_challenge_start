@@ -1,15 +1,12 @@
-import React from "react";
-
-export const ContactForm = ({
-  name,
+import React, {useState} from "react";
+/*  name,
   setName,
   phone,
   setPhone,
   email,
   setEmail,
-  handleSubmit
-}) => {
-  return (
+  handleSubmit  return (
     ContactForm
-  );
-};
+  );*/
+export const ContactForm = (props) => {
+}
