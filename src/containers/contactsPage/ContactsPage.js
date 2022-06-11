@@ -89,16 +89,17 @@ let flatFirstArray = extractFirstArray.flat();
                         setPhone={setPhone}
                         setEmail={setEmail}
                         onSubmit={handleSubmit}
-                          /> {/*Add props & cb func to ContactsPage  {props.allContactInfo.forEach((item, i) =>  */}
+                          /> {/*Add props & cb func to ContactsPage  {props.allContactInfo.forEach((item, i) =>  TileList key={`key: ${index+3151})`}*/}
       </section>
       <hr />
       <section>
-        <h2>Contacts</h2>         
-        {props.allContactInfo.map((element, index) => (
+        <h2>Contacts</h2>   
+        <TileList info={props.allContactInfo}/>
+        {/* {props.allContactInfo.map((element, index) => (
                 <TileList key={`key: ${index}`}
                           info={element}
                 />
-              ))}
+        ))} */}
           
       </section>
     </div>
