@@ -9,7 +9,7 @@ export const ContactsPage = (props) => { // stateful component, maintains adding
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [duplicateName, setDuplicateName] = useState(true)
-  let contactInfoName = props.allContactInfo; // recieve from app.js for duplicate check
+  const contactInfoName = props.allContactInfo; // recieve from app.js for duplicate check
   const onContactsAdd = props.onContactsAdd; // recieve from app.js for duplicate 
 
   // extract Informations from contactInfos from app.js
