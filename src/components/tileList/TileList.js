@@ -1,15 +1,16 @@
 import React from "react";
+import { Tile } from "../tile/Tile";
 
 export const TileList = (props) => {
   return (
     <div>
-           <ul>
            {props.info.map((element, index) => (
-                <li key={`key: ${index}`}>
-                    {(Object.keys(element))}: {Object.values(element)}
-                </li>
+                <Tile key={`tileKey: ${index}`}
+                      // titlename={(Object.keys(element))} 
+                      // titlevalue={Object.values(element)}
+                      titleValue={element}
+                />
               ))}
-          </ul> 
     </div>
   );
 };
