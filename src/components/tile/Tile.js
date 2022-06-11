@@ -8,8 +8,8 @@ export const Tile = (props) => {
   // console.log(firstSlice);
   // console.log(restSlice)
   // console.log(Object.keys(firstSlice[0]), Object.values(firstSlice[0]));
-  let newFirstSlice = <p className="tile-title">{Object.keys(firstSlice[0])}: {Object.values(firstSlice[0])}</p>
-  let newRestSlice=restSlice.map((element) => <p className="tile">{`${Object.keys(element)}: ${Object.values(element)}`}</p>)
+  let newFirstSlice = <p className="tile-title" key={`${Object.values(firstSlice[0])}`}>{Object.keys(firstSlice[0])}: {Object.values(firstSlice[0])}</p>
+  let newRestSlice=restSlice.map((element) => <p className="tile" key={`${Object.values(element)}`}>{`${Object.keys(element)}: ${Object.values(element)}`}</p>)
 
   //console.log(newRestSlice);
   // let firstObject = props.titleValue.filter(({Firstname}) => Firstname)
