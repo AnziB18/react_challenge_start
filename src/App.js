@@ -45,7 +45,7 @@ function App() {  // stateful component, maintains appointments & contacts
                           />
           </Route>
           <Route path={ROUTES.APPOINTMENTS}>
-            <AppointmentsPage appointment={appointments} 
+            <AppointmentsPage appointments={appointments} 
                               onAppointmentAdd={addAppointments} 
                               allContactInfo ={contacts}
                               /> {/* Add props & cb func to AppointmentsPage */}
