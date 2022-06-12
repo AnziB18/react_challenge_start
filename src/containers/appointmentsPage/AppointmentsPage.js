@@ -30,12 +30,26 @@ export const AppointmentsPage = (props) => {
   return (
     <div>
       <section>
-        <h2>Add Appointment</h2>
+        <h2>Add Appointment</h2>       
+        <AppointmentForm  addCurrentTitle={currentTitle}
+                          addContact={contact}
+                          addDate={date}
+                          addTime={time}
+                          addsetCurrentTitle={setCurrentTitle}
+                          addsetContact={setContact}
+                          addsetDate={setDate}
+                          addsetTime={setTime}
+                          onSubmit={handleSubmit}
+                          arrayOfContacts={contactInfoName}
+                          />
       </section>
       <hr />
       <section>
         <h2>Appointments</h2>
+        <TileList info={appointments}     
+                  />
       </section>
     </div>
+
   );
 };
