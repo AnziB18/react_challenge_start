@@ -3,7 +3,7 @@ import { ContactForm } from "../../components/contactForm/ContactForm";
 import { TileList } from "../../components/tileList/TileList";
 
 export const ContactsPage = (props) => { // stateful component, maintains adding contacts & listing current contacts
-  // Define state variables for contact info and duplicate check
+  // Define 4 state variables for contact infos & duplicate check
   const [firstName, setFirstName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
@@ -50,7 +50,6 @@ export const ContactsPage = (props) => { // stateful component, maintains adding
     }        
   }  
 
-
   return (
     <div>
     <section>
@@ -74,5 +73,3 @@ export const ContactsPage = (props) => { // stateful component, maintains adding
 
   );
 };
-
-/*this is a initial commit*/
