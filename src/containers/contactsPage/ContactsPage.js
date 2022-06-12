@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-//import { ContactForm } from "../../components/contactForm/ContactForm";
-//import { TileList } from "../../components/tileList/TileList";
+import { ContactForm } from "../../components/contactForm/ContactForm";
+import { TileList } from "../../components/tileList/TileList";
 
 export const ContactsPage = (props) => { // stateful component, maintains adding contacts & listing current contacts
   // Define state variables for contact info and duplicate check
@@ -53,19 +53,25 @@ export const ContactsPage = (props) => { // stateful component, maintains adding
 
   return (
     <div>
-      <section>
-        <h2>Add Contact</h2>
-        {/* <ContactForm  addContactInfo={contactInfo}
-                          onSubmit={handleSubmit}
-                          onSetContact={setContactInfo}
-                          /> */}
-      </section>
-      <hr />
-      <section>
-        <h2>Contacts</h2>
-        {/* <TileList /> */}
-      </section>
-    </div>
+    <section>
+      {/*Add props & cb func to ContactsPage */}  
+      <h2>Add Contact</h2>                                                          
+        <ContactForm  addFirstname={firstName}
+                      addPhone={phone}
+                      addEmail={email}
+                      setFirstname={setFirstName}
+                      setPhone={setPhone}
+                      setEmail={setEmail}
+                      onSubmit={handleSubmit}
+                        /> 
+    </section>
+    <hr />
+    <section>
+      <h2>Contacts</h2>   
+      <TileList info={props.allContactInfo}/>
+    </section>
+  </div>
+
   );
 };
 
