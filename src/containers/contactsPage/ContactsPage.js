@@ -11,20 +11,6 @@ export const ContactsPage = (props) => { // stateful component, maintains adding
 
   let contactInfoName = props.allContactInfo; // recieve from app.js for duplicate check
   const onContactsAdd = props.onContactsAdd; // recieve from app.js for duplicate check
-  useEffect(() => {
-    const checked = contactInfo.includes('Christian');
-    if(checked) {
-      console.log('Peter')
-    }else {
-      setContactInfo([{contactName: 'Christian'}, {phone: '002220'}, {email: 'c@hr'}])
-      console.log(contactInfo)
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        //setContactInfo(e.target.value);
-      }
-    };
-    return () => {console.log('removed')}
-  }, [contactInfo])
   return (
     <div>
       <section>
