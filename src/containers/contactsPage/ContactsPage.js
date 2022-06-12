@@ -20,6 +20,11 @@ export const ContactsPage = (props) => { // stateful component, maintains adding
     )
   let flatFirstArray = extractFirstArray.flat();
   let extractSecondArray = flatFirstArray.map(element => element.Firstname)
+    // useEffect func for checking of dublicate names
+    useEffect(() => {
+      extractSecondArray.includes(firstName) ? setDuplicateName(false) : setDuplicateName(true); 
+      return () => console.log('removed');
+     }, [extractSecondArray, firstName])
 
   return (
     <div>
