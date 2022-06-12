@@ -11,6 +11,16 @@ export const ContactsPage = (props) => { // stateful component, maintains adding
 
   let contactInfoName = props.allContactInfo; // recieve from app.js for duplicate check
   const onContactsAdd = props.onContactsAdd; // recieve from app.js for duplicate check
+    // extract Informations from contactInfos from app.js
+    let extractFirstArray  = contactInfoName.map((element) => {
+      return element.filter(({Firstname}) => {
+         return Firstname}
+         );
+      }
+    )
+  let flatFirstArray = extractFirstArray.flat();
+  let extractSecondArray = flatFirstArray.map(element => element.Firstname)
+
   return (
     <div>
       <section>
