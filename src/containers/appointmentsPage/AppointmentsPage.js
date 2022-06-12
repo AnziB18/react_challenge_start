@@ -13,6 +13,14 @@ export const AppointmentsPage = (props) => {
     const contactInfoName = props.allContactInfo;
     const appointments = props.allAppointments;
     const addAppointments = props.onAppointmentAdd;
+    
+    //reset func for reset Inputs
+    const resetInput = () => {
+      setCurrentTitle('');
+      //setContact('');
+      setDate('');
+      setTime('');
+  }
   
 
   const handleSubmit = (e) => {
