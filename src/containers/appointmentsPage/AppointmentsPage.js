@@ -3,18 +3,41 @@ import {AppointmentForm} from "../../components/appointmentForm/AppointmentForm.
 import { TileList } from "../../components/tileList/TileList";
 
 export const AppointmentsPage = (props) => {
-  /* Define state variables for appointment info */
+    /* Define state variables for appointment info */
   const [currentTitle, setCurrentTitle] = useState('');
-  const [contact, setContact] = useState('');
+  const [contact, setContact] = useState([]);
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
 
   const contactInfoName = props.allContactInfo;
-  const appointments = props.appointments;
+  const appointments = props.allAppointments;
   const addAppointments = props.onAppointmentAdd;
+  // let extractFirstArray  = contactInfoName.map((element) => {
+  //   return element.filter(({Firstname}) => {
+  //     return Firstname}
+  //     );
+  //   }
+  // )
+  // let flatFirstArray = extractFirstArray.flat();
+  // let extractSecondArray = flatFirstArray.map(element => element.Firstname)
+  // console.log(extractSecondArray, flatFirstArray);
+  //setContact();
+  // useEffect(() => {
+  //   setContact(extractSecondArray)
+  // },[])
+    // useEffect(() => {
+    //   setContact(flatFirstArray)
+    // },[])
+    //  useEffect(() => {
+    //   setContact(contactInfoName)
+    // },[])
+  //  useEffect(() => { does not work
+  //   // eslint-disable-next-line no-undef
+  //   setContact(Firstname)
+  // },[])
   const resetInput = () => {
     setCurrentTitle('');
-    setContact('');
+    //setContact('');
     setDate('');
     setTime('');
 }
@@ -27,7 +50,7 @@ export const AppointmentsPage = (props) => {
   return (
     <div>
       <section>
-        <h2>Add Appointment</h2>
+        <h2>Add Appointment</h2>       
         <AppointmentForm  addCurrentTitle={currentTitle}
                           addContact={contact}
                           addDate={date}
@@ -36,13 +59,14 @@ export const AppointmentsPage = (props) => {
                           addsetContact={setContact}
                           addsetDate={setDate}
                           addsetTime={setTime}
-                          onhandleSubmit={handleSubmit}
+                          onSubmit={handleSubmit}
                           arrayOfContacts={contactInfoName}
                           />
       </section>
       <hr />
       <section>
         <h2>Appointments</h2>
+        {/* {appointments !== [] &&} */}
         <TileList info={appointments}     
                   />
       </section>
