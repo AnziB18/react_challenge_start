@@ -4,7 +4,11 @@ import React, { useState, useEffect } from "react";
 
 export const ContactsPage = (props) => { // stateful component, maintains adding contacts & listing current contacts
   // Define state variables for contact info and duplicate check
-  const [contactInfo, setContactInfo] = useState([{contactName: ''}, {phone: 0}, {email: ''}]);
+  const [firstName, setFirstName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [duplicateName, setDuplicateName] = useState(true)
+
   let contactInfoName = props.allContactInfo; // recieve from app.js for duplicate check
   const onContactsAdd = props.onContactsAdd; // recieve from app.js for duplicate check
   useEffect(() => {
