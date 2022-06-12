@@ -11,6 +11,7 @@ export const ContactsPage = (props) => { // stateful component, maintains adding
 
   let contactInfoName = props.allContactInfo; // recieve from app.js for duplicate check
   const onContactsAdd = props.onContactsAdd; // recieve from app.js for duplicate check
+
     // extract Informations from contactInfos from app.js
     let extractFirstArray  = contactInfoName.map((element) => {
       return element.filter(({Firstname}) => {
@@ -20,11 +21,19 @@ export const ContactsPage = (props) => { // stateful component, maintains adding
     )
   let flatFirstArray = extractFirstArray.flat();
   let extractSecondArray = flatFirstArray.map(element => element.Firstname)
+
     // useEffect func for checking of dublicate names
     useEffect(() => {
       extractSecondArray.includes(firstName) ? setDuplicateName(false) : setDuplicateName(true); 
       return () => console.log('removed');
      }, [extractSecondArray, firstName])
+
+    //resetInput func
+    const resetInput = () => {
+      setFirstName('');
+      setPhone('');
+      setEmail('');
+  }
 
   return (
     <div>
