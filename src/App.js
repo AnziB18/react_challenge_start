@@ -16,11 +16,11 @@ function App() {  // stateful component, maintains appointments & contacts
 
   //Implement function to add data to contacts and appointments
   const addContacts = (contactInfos) => {
-    setContacts(prev => {return [contactInfos, ...prev]})
+    setContacts(prev => [...prev, contactInfos])
   }
   //Implement function to add data to contacts
   const addAppointments = (appointment) => {
-    setAppointments(prev => {return [appointment, ...prev]})
+    setAppointments(prev => [...prev, appointment])
   }
 
   return (
@@ -45,7 +45,7 @@ function App() {  // stateful component, maintains appointments & contacts
                           />
           </Route>
           <Route path={ROUTES.APPOINTMENTS}>
-            <AppointmentsPage appointments={appointments} 
+            <AppointmentsPage allAppointments={appointments} 
                               onAppointmentAdd={addAppointments} 
                               allContactInfo ={contacts}
                               /> {/* Add props & cb func to AppointmentsPage */}
