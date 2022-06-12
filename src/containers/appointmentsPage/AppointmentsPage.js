@@ -25,16 +25,7 @@ export const AppointmentsPage = (props) => {
     e.preventDefault();/* Add contact info and clear data  */
     addAppointments([{Title: currentTitle}, {ContactPerson: contact}, {Date: date}, {Time: time}]);
     resetInput();
-  };
-
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    /*
-    Add contact info and clear data  
-    */
-   
-  };
+  }
 
   return (
     <div>
