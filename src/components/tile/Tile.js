@@ -4,12 +4,12 @@ export const Tile = (props) => {
   let newArr = props.titleValue;
   let firstSlice = newArr.slice(0,1);
   let restSlice = newArr.slice(1)
-  // console.log(newArr);
-  // console.log(firstSlice);
+   console.log(newArr);
+   console.log(firstSlice);
   // console.log(restSlice)
   // console.log(Object.keys(firstSlice[0]), Object.values(firstSlice[0]));
-  let newFirstSlice = <p className="tile-title" key={`${Object.values(firstSlice[0])}`}>{Object.keys(firstSlice[0])}: {Object.values(firstSlice[0])}</p>
-  let newRestSlice=restSlice.map((element) => <p className="tile" key={`${Object.values(element)}`}>{`${Object.keys(element)}: ${Object.values(element)}`}</p>)
+  //let newFirstSlice = <p className="tile-title" key={`${Object.values(firstSlice[0])}`}>{Object.keys(firstSlice[0])}: {Object.values(firstSlice[0])}</p>
+  //let newRestSlice=restSlice.map((element) => <p className="tile" key={`${Object.values(element)}`}>{`${Object.keys(element)}: ${Object.values(element)}`}</p>)
 
   //console.log(newRestSlice);
   // let firstObject = props.titleValue.filter(({Firstname}) => Firstname)
@@ -47,16 +47,20 @@ export const Tile = (props) => {
   // console.log(newKeyOfObject);
   // }
   //let valuesOfObject = Object.values(props.titleValue)
-  //console.log(newKeyOfObject);
+  //console.log(newKeyOfObject);{firstSlice !== [] && {restSlice !== [] &&
   return (
     <div className="tile-container">
-      {newFirstSlice}
-      {newRestSlice}
+      
+      <p className="tile-title" key={`${Object.values(firstSlice[0])}`}>{Object.keys(firstSlice[0])}: {Object.values(firstSlice[0])}</p>
+      {restSlice.map((element) => 
+      <p className="tile" key={`${Object.values(element)}`}>{`${Object.keys(element)}: ${Object.values(element)}`}</p>)}
+
         {/* <p>{firstKeyOfObject}</p> : {valuesOfObject}*/}
           {/* <p className="tile-title" >{firstKey}: {firstString}</p> */}
         
         {/* {Object.values(props.titleValue).map((element,index) => 
-          <>
+          <>      {newFirstSlice}
+      {newRestSlice}
             <p className="tile-title" key={`${index}`}>{element}</p>
             {console.log(element)}
             {console.log(element[index])}
