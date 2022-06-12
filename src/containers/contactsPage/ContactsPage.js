@@ -34,6 +34,22 @@ export const ContactsPage = (props) => { // stateful component, maintains adding
       setPhone('');
       setEmail('');
   }
+  // handleSubmit with alerts for different cases, after successful handle, resetInput() is called
+  const handleSubmit = (e) => { 
+    e.preventDefault();
+    //console.log(duplicateName);
+    if(duplicateName){
+    onContactsAdd([{Firstname: firstName}, {Phone: phone}, {Email: email}]);
+    resetInput();
+    }
+    else if(firstName === '') {
+      alert('You have not enter name')
+    } 
+    else {alert('Name is already used')
+      resetInput();
+    }        
+  }  
+
 
   return (
     <div>
